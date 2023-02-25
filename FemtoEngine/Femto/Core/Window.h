@@ -33,8 +33,8 @@ namespace Femto
 		void SetResizable(bool resizable);
 
 		void Close();
-		bool IsRunning();
-		void Update();
+		bool IsRunning() const;
+		void Update() const;
 		void Cleanup();
 	};
 }

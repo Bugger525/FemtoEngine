@@ -1,6 +1,6 @@
 #include "Window.h"
 #include <GLFW/glfw3.h>
-#include <Windows.h>
+#include "Debug.h"
 
 namespace Femto
 {
@@ -8,7 +8,7 @@ namespace Femto
 	{
 		if (!glfwInit())
 		{
-			// Debug
+			Debug::Critical("Failed to create Femto::Core::Window; Failed to initialize GLFW.");
 			return;
 		}
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -24,19 +24,16 @@ namespace Femto
 			m_Window = glfwCreateWindow(m_Prop.Width, m_Prop.Height, m_Prop.Title.c_str(), nullptr, nullptr);
 		if (m_Window == nullptr)
 		{
-			// Debug
+			Debug::Critical("Failed to create Femto::Core::Window; Failed to create GLFWwindow.");
 			return;
 		}
 		glfwSetWindowPos(static_cast<GLFWwindow*>(m_Window), m_Prop.X, m_Prop.Y);
-		glfwMakeContextCurrent(static_cast<GLFWwindow*>(m_Window));
-		glfwFocusWindow(static_cast<GLFWwindow*>(m_Window));
-		glfwSetWindowUserPointer(static_cast<GLFWwindow*>(m_Window), this);
 
-		HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
-		DWORD dwMode = NULL;
-		GetConsoleMode(hOut, &dwMode);
-		dwMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
-		SetConsoleMode(hOut, dwMode);
+		glfwMakeContextCurrent(static_cast<GLFWwindow*>(m_Window));
+
+		glfwFocusWindow(static_cast<GLFWwindow*>(m_Window));
+
+		glfwSetWindowUserPointer(static_cast<GLFWwindow*>(m_Window), this);
 	}
 	Window::~Window()
 	{
@@ -101,21 +98,39 @@ namespace Femto
 	}
 	void Window::SetFullScreen(bool fullScreen)
 	{
+		if (m_Prop.FullScreen == fullScreen) return;
+
 		m_Prop.FullScreen = fullScreen;
+		if (m_Prop.FullScreen)
+		{
+			const GLFWvidmode* mode = glfwGetVideoMode(static_cast<GLFWmonitor*>(m_Monitor));
+			glfwSetWindowMonitor(static_cast<GLFWwindow*>(m_Window), static_cast<GLFWmonitor*>(m_Monitor), 0, 0, mode->width, mode->height, 0);
+		}
+		else
+		{
+			glfwSetWindowMonitor(static_cast<GLFWwindow*>(m_Window), nullptr, m_Prop.X, m_Prop.Y, m_Prop.Width, m_Prop.Height, 0);
+			SetResizable(true);
+		}
 	}
 	void Window::SetResizable(bool resizable)
 	{
+		if (m_Prop.Resizable == resizable) return;
+
 		m_Prop.Resizable = resizable;
+		if (m_Prop.Resizable)
+			glfwSetWindowAttrib(static_cast<GLFWwindow*>(m_Window), GLFW_RESIZABLE, GLFW_TRUE);
+		else
+			glfwSetWindowAttrib(static_cast<GLFWwindow*>(m_Window), GLFW_RESIZABLE, GLFW_FALSE);
 	}
 	void Window::Close()
 	{
 		glfwSetWindowShouldClose(static_cast<GLFWwindow*>(m_Window), true);
 	}
-	bool Window::IsRunning()
+	bool Window::IsRunning() const
 	{
 		return !glfwWindowShouldClose(static_cast<GLFWwindow*>(m_Window));
 	}
-	void Window::Update()
+	void Window::Update() const
 	{
 		glfwSwapBuffers(static_cast<GLFWwindow*>(m_Window));
 		glfwPollEvents();
