@@ -33,6 +33,21 @@
     <ClInclude Include="Femto\System\Timer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Femto\Graphics\GraphicsDevice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Femto\External\include\GL\eglew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Femto\External\include\GL\glew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Femto\External\include\GL\glxew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Femto\External\include\GL\wglew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Femto\System\App.cpp">
@@ -47,8 +62,12 @@
     <ClCompile Include="Femto\System\Timer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Femto\Graphics\GraphicsDevice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="Femto\External\lib\glfw3.lib" />
+    <Library Include="Femto\External\lib\glew32s.lib" />
   </ItemGroup>
 </Project>

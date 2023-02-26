@@ -8,7 +8,7 @@ namespace Femto
 	{
 		if (!glfwInit())
 		{
-			Debug::Critical("Failed to create Femto::Core::Window; Failed to initialize GLFW.");
+			Debug::Critical("Femto::Core::Window error; Failed to initialize GLFW.");
 			return;
 		}
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -24,7 +24,7 @@ namespace Femto
 			m_Window = glfwCreateWindow(m_Prop.Width, m_Prop.Height, m_Prop.Title.c_str(), nullptr, nullptr);
 		if (m_Window == nullptr)
 		{
-			Debug::Critical("Failed to create Femto::Core::Window; Failed to create GLFWwindow.");
+			Debug::Critical("Femto::Core::Window error; Failed to create GLFWwindow.");
 			return;
 		}
 		glfwSetWindowPos(static_cast<GLFWwindow*>(m_Window), m_Prop.X, m_Prop.Y);
@@ -142,5 +142,15 @@ namespace Femto
 			glfwDestroyWindow(static_cast<GLFWwindow*>(m_Window));
 			glfwTerminate();
 		}
+	}
+	void Window::GLFWFrameBufferSizeCallback(void* window, int width, int height)
+	{
+		auto& self = *static_cast<Window*>(glfwGetWindowUserPointer(static_cast<GLFWwindow*>(window)));
+		if (!self.m_Prop.FullScreen)
+		{
+			self.m_Prop.Width = width;
+			self.m_Prop.Height = height;
+		}
+		glViewport(0, 0, width, height);
 	}
 }

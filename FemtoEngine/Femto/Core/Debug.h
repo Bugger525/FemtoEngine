@@ -25,5 +25,7 @@ namespace Femto
 		static void Error(std::string_view str, const std::source_location& location = std::source_location::current());
 		static void Warn(std::string_view str, const std::source_location& location = std::source_location::current());
 		static void Info(std::string_view str, const std::source_location& location = std::source_location::current());
+	private:
+		static void __stdcall GLFWDebugOutput(unsigned int source, unsigned int type, unsigned int id, unsigned int severity, int length, const char* message, const void* userParam);
 	};
 }

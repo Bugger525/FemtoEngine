@@ -8,8 +8,8 @@ namespace Femto
 	{
 	private:
 		WindowProperties m_Prop;
-		void* m_Window;
-		void* m_Monitor;
+		/* GLFWwindow*  */  void* m_Window;
+		/* GLFWmonitor* */ void* m_Monitor;
 	public:
 		Window(const WindowProperties& prop);
 		~Window();
@@ -36,5 +36,7 @@ namespace Femto
 		bool IsRunning() const;
 		void Update() const;
 		void Cleanup();
+	private:
+		static void GLFWFrameBufferSizeCallback(void* window, int width, int height);
 	};
 }
