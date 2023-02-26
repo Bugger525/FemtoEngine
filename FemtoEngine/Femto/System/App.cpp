@@ -1,5 +1,6 @@
 #include "App.h"
 #include "../Core/Window.h"
+#include "Timer.h"
 
 namespace Femto
 {
@@ -13,10 +14,15 @@ namespace Femto
 
 		Initialize();
 
+		Timer timer{};
 		while (window.IsRunning())
 		{
-			Update();
-			Render();
+			timer.Tick();
+
+			Update(timer.GetDeltaTime());
+			Render(timer.GetDeltaTime());
+
+			timer.Reset();
 
 			window.Update();
 		}

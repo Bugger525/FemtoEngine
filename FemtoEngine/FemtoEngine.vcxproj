@@ -147,12 +147,14 @@
     <ClInclude Include="Femto\Core\Window.h" />
     <ClInclude Include="Femto\External\include\GLFW\glfw3.h" />
     <ClInclude Include="Femto\System\App.h" />
+    <ClInclude Include="Femto\System\Timer.h" />
     <ClInclude Include="Femto\System\WindowProperties.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Femto\Core\Debug.cpp" />
     <ClCompile Include="Femto\Core\Window.cpp" />
     <ClCompile Include="Femto\System\App.cpp" />
+    <ClCompile Include="Femto\System\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="Femto\External\lib\glfw3.lib" />

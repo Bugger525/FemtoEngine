@@ -1,20 +1,19 @@
 #include "Femto/System/App.h"
 #include "Femto/Core/Debug.h"
+#include <Windows.h>
 
 class DemoGame : public Femto::App
 {
 protected:
 	void Initialize() override
 	{
-		FEMTO_INFO("Hi!");
 	}
-	void Update() override
+	void Update(float dt) override
 	{
-
 	}
-	void Render() override
+	void Render(float dt) override
 	{
-
+		FEMTO_WARN("{}", dt);
 	}
 	void Cleanup() override
 	{
