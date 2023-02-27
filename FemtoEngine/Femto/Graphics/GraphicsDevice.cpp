@@ -1,5 +1,6 @@
 #include "GraphicsDevice.h"
 #include "../Core/Window.h"
+#include "../Core/Debug.h"
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
@@ -13,6 +14,21 @@ namespace Femto
 {
 	GraphicsDevice::GraphicsDevice(Window* window) : m_Window(window)
 	{
-
+		if (glewInit() != GLEW_OK)
+		{
+			Debug::Critical("Femto::Graphics::GraphicsDevice error; Failed to initialized GLEW.");
+			return;
+		}
+		glfwSetFramebufferSizeCallback(m_Window->GetRawWindow(), GLFWFrameBufferSizeCallback);
+	}
+	void GraphicsDevice::GLFWFrameBufferSizeCallback(GLFWwindow* window, int width, int height)
+	{
+		auto& self = *static_cast<Window*>(glfwGetWindowUserPointer(window));
+		if (!self.m_Prop.FullScreen)
+		{
+			self.m_Prop.Width = width;
+			self.m_Prop.Height = height;
+		}
+		glViewport(0, 0, width, height);
 	}
 }

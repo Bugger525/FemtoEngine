@@ -153,7 +153,7 @@
     <ClInclude Include="Femto\Graphics\GraphicsDevice.h" />
     <ClInclude Include="Femto\System\App.h" />
     <ClInclude Include="Femto\System\Timer.h" />
-    <ClInclude Include="Femto\System\WindowProperties.h" />
+    <ClInclude Include="Femto\Core\WindowProperties.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Femto\Core\Debug.cpp" />

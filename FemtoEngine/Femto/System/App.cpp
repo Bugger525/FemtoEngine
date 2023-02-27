@@ -10,12 +10,12 @@ namespace Femto
 	}
 	void App::Run()
 	{
-		Window window{ CreateWindow() };
+		Window = Femto::Window{ CreateWindow() };
 
 		Initialize();
 
 		Timer timer{};
-		while (window.IsRunning())
+		while (Window.IsRunning())
 		{
 			timer.Tick();
 
@@ -24,7 +24,7 @@ namespace Femto
 
 			timer.Reset();
 
-			window.Update();
+			Window.Update();
 		}
 		Cleanup();
 	}

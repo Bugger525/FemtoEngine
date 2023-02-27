@@ -1,12 +1,14 @@
 #pragma once
 
-#include "WindowProperties.h"
+#include "../Core/Window.h"
 
 namespace Femto
 {
 	class App
 	{
 	protected:
+		Window Window;
+
 		virtual WindowProperties CreateWindow();
 
 		virtual void Initialize() = 0;

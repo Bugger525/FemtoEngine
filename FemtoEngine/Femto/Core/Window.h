@@ -1,6 +1,10 @@
 #pragma once
 
-#include "../System/WindowProperties.h"
+#include "WindowProperties.h"
+#include "../Graphics/GraphicsDevice.h"
+
+struct GLFWwindow;
+struct GLFWmonitor;
 
 namespace Femto
 {
@@ -8,11 +12,13 @@ namespace Femto
 	{
 	private:
 		WindowProperties m_Prop;
-		/* GLFWwindow*  */  void* m_Window;
-		/* GLFWmonitor* */ void* m_Monitor;
+		GLFWwindow* m_Window;
+		GLFWmonitor* m_Monitor;
 	public:
 		Window(const WindowProperties& prop);
 		~Window();
+
+		GLFWwindow* GetRawWindow() const;
 
 		unsigned int GetPosX() const;
 		unsigned int GetPosY() const;
@@ -37,6 +43,6 @@ namespace Femto
 		void Update() const;
 		void Cleanup();
 	private:
-		static void GLFWFrameBufferSizeCallback(void* window, int width, int height);
+		friend void GraphicsDevice::GLFWFrameBufferSizeCallback(GLFWwindow* window, int width, int height);
 	};
 }

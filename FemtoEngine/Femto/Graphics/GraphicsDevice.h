@@ -1,5 +1,7 @@
 #pragma once
 
+struct GLFWwindow;
+
 namespace Femto
 {
 	class Window;
@@ -10,5 +12,10 @@ namespace Femto
 		Window* m_Window;
 	public:
 		GraphicsDevice(Window* window);
+
+		void Clear(/* color */);
+		void Draw(/* args */);
+	private:
+		static void GLFWFrameBufferSizeCallback(GLFWwindow* window, int width, int height);
 	};
 }

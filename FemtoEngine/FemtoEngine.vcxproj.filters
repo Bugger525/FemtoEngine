@@ -18,7 +18,7 @@
     <ClInclude Include="Femto\System\App.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Femto\System\WindowProperties.h">
+    <ClInclude Include="Femto\Core\WindowProperties.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Femto\Core\Window.h">
