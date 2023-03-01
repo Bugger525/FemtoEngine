@@ -4,7 +4,8 @@
 
 namespace Femto
 {
-	Window::Window(const WindowProperties& prop) : m_Prop(prop), m_Window(nullptr), m_Monitor(nullptr)
+	Window::Window()
+		: m_Position(50, 50), m_Size(800, 600), m_Title("FemtoEngine App"), m_FullScreen(false), m_Resizable(true), m_Window(nullptr), m_Monitor(nullptr)
 	{
 		if (!glfwInit())
 		{
@@ -18,16 +19,16 @@ namespace Femto
 
 		m_Monitor = glfwGetPrimaryMonitor();
 
-		if (m_Prop.FullScreen)
-			m_Window = glfwCreateWindow(m_Prop.Width, m_Prop.Height, m_Prop.Title.c_str(), m_Monitor, nullptr);
+		if (m_FullScreen)
+			m_Window = glfwCreateWindow(m_Size.X, m_Size.Y, m_Title.c_str(), m_Monitor, nullptr);
 		else
-			m_Window = glfwCreateWindow(m_Prop.Width, m_Prop.Height, m_Prop.Title.c_str(), nullptr, nullptr);
+			m_Window = glfwCreateWindow(m_Size.X, m_Size.Y, m_Title.c_str(), nullptr, nullptr);
 		if (m_Window == nullptr)
 		{
 			Debug::Critical("Femto::Core::Window error; Failed to create GLFWwindow.");
 			return;
 		}
-		glfwSetWindowPos(m_Window, m_Prop.X, m_Prop.Y);
+		glfwSetWindowPos(m_Window, m_Position.X, m_Position.Y);
 
 		glfwMakeContextCurrent(m_Window);
 
@@ -39,100 +40,92 @@ namespace Femto
 	{
 		Cleanup();
 	}
-	void* Window::GetRawWindow() const
+	GLFWwindow* Window::GetRawWindow() const
 	{
 		return m_Window;
 	}
-	unsigned int Window::GetPosX() const
+	Vector2u Window::GetPosition() const
 	{
-		return m_Prop.X;
-	}
-	unsigned int Window::GetPosY() const
-	{
-		return m_Prop.Y;
+		return m_Position;
 	}
 	void Window::SetPosX(unsigned int x)
 	{
-		m_Prop.X = x;
-		glfwSetWindowPos(m_Window, m_Prop.X, m_Prop.Y);
+		m_Position.X = x;
+		glfwSetWindowPos(m_Window, m_Position.X, m_Position.Y);
 	}
 	void Window::SetPosY(unsigned int y)
 	{
-		m_Prop.Y = y;
-		glfwSetWindowPos(m_Window, m_Prop.X, m_Prop.Y);
+		m_Position.Y = y;
+		glfwSetWindowPos(m_Window, m_Position.X, m_Position.Y);
 	}
 	void Window::SetPosition(unsigned int x, unsigned int y)
 	{
-		m_Prop.X = x;
-		m_Prop.Y = y;
-		glfwSetWindowPos(m_Window, m_Prop.X, m_Prop.Y);
+		m_Position.X = x;
+		m_Position.Y = y;
+		glfwSetWindowPos(m_Window, m_Position.X, m_Position.Y);
 	}
-	unsigned int Window::GetWidth() const
+	Vector2u Window::GetSize() const
 	{
-		return m_Prop.Width;
-	}
-	unsigned int Window::GetHeight() const
-	{
-		return m_Prop.Height;
+		return m_Size;
 	}
 	void Window::SetWidth(unsigned int width)
 	{
-		if (m_Prop.Width == width) return;
+		if (m_Size.X == width) return;
 
-		m_Prop.Width = width;
-		glfwSetWindowSize(m_Window, m_Prop.Width, m_Prop.Height);
+		m_Size.X = width;
+		glfwSetWindowSize(m_Window, m_Size.X, m_Size.Y);
 	}
 	void Window::SetHeight(unsigned int height)
 	{
-		if (m_Prop.Height == height) return;
+		if (m_Size.Y == height) return;
 
-		m_Prop.Height = height;
-		glfwSetWindowSize(m_Window, m_Prop.Width, m_Prop.Height);
+		m_Size.Y = height;
+		glfwSetWindowSize(m_Window, m_Size.X, m_Size.Y);
 	}
 	void Window::SetSize(unsigned int width, unsigned int height)
 	{
-		if (m_Prop.Width != width)
-			m_Prop.Width = width;
+		if (m_Size.X != width)
+			m_Size.X = width;
 
-		if (m_Prop.Height != height)
-			m_Prop.Height = height;
+		if (m_Size.Y != height)
+			m_Size.Y = height;
 
-		if (m_Prop.Width != width || m_Prop.Height != height)
-			glfwSetWindowSize(m_Window, m_Prop.Width, m_Prop.Height);
+		if (m_Size.X != width || m_Size.Y != height)
+			glfwSetWindowSize(m_Window, m_Size.X, m_Size.Y);
 	}
 	std::string_view Window::GetTitle() const
 	{
-		return m_Prop.Title;
+		return m_Title;
 	}
 	void Window::SetTitle(std::string_view title)
 	{
-		if (m_Prop.Title == title) return;
+		if (m_Title == title) return;
 
-		m_Prop.Title = title;
-		glfwSetWindowTitle(m_Window, m_Prop.Title.c_str());
+		m_Title = title;
+		glfwSetWindowTitle(m_Window, m_Title.c_str());
 	}
 	void Window::SetFullScreen(bool fullScreen)
 	{
-		if (m_Prop.FullScreen == fullScreen) return;
+		if (m_FullScreen == fullScreen) return;
 
-		m_Prop.FullScreen = fullScreen;
-		if (m_Prop.FullScreen)
+		m_FullScreen = fullScreen;
+		if (m_FullScreen)
 		{
 			const GLFWvidmode* mode = glfwGetVideoMode(m_Monitor);
 			glfwSetWindowMonitor(m_Window, m_Monitor, 0, 0, mode->width, mode->height, 0);
 		}
 		else
 		{
-			glfwSetWindowMonitor(m_Window, nullptr, m_Prop.X, m_Prop.Y, m_Prop.Width, m_Prop.Height, 0);
+			glfwSetWindowMonitor(m_Window, nullptr, m_Position.X, m_Position.Y, m_Size.X, m_Size.Y, 0);
 			SetResizable(true);
 		}
 	}
 	void Window::SetResizable(bool resizable)
 	{
-		if (m_Prop.Resizable == resizable) return;
+		if (m_Resizable == resizable) return;
 
-		m_Prop.Resizable = resizable;
-		if (m_Prop.Resizable)
+		m_Resizable = resizable;
+		if (m_Resizable)
 			glfwSetWindowAttrib(m_Window, GLFW_RESIZABLE, GLFW_TRUE);
 		else
 			glfwSetWindowAttrib(m_Window, GLFW_RESIZABLE, GLFW_FALSE);

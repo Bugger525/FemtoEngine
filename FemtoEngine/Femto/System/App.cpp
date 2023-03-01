@@ -1,21 +1,17 @@
 #include "App.h"
-#include "../Core/Window.h"
 #include "Timer.h"
 
 namespace Femto
 {
-	WindowProperties App::CreateWindow()
-	{
-		return WindowProperties();
-	}
 	void App::Run()
 	{
-		Window = Femto::Window{ CreateWindow() };
+		m_Window = std::make_unique<Window>();
+		m_GraphicsDevice = std::make_unique<GraphicsDevice>(m_Window.get());
 
 		Initialize();
 
 		Timer timer{};
-		while (Window.IsRunning())
+		while (m_Window->IsRunning())
 		{
 			timer.Tick();
 
@@ -24,7 +20,7 @@ namespace Femto
 
 			timer.Reset();
 
-			Window.Update();
+			m_Window->Update();
 		}
 		Cleanup();
 	}

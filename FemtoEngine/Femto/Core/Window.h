@@ -1,6 +1,7 @@
 #pragma once
 
-#include "WindowProperties.h"
+#include <string>
+#include "../System/Vector2.h"
 #include "../Graphics/GraphicsDevice.h"
 
 struct GLFWwindow;
@@ -11,23 +12,27 @@ namespace Femto
 	class Window
 	{
 	private:
-		WindowProperties m_Prop;
+		Vector2u m_Position;
+		Vector2u m_Size;
+		std::string m_Title;
+
+		bool m_FullScreen;
+		bool m_Resizable;
+
 		GLFWwindow* m_Window;
 		GLFWmonitor* m_Monitor;
 	public:
-		Window(const WindowProperties& prop);
+		Window();
 		~Window();
 
 		GLFWwindow* GetRawWindow() const;
 
-		unsigned int GetPosX() const;
-		unsigned int GetPosY() const;
+		Vector2u GetPosition() const;
 		void SetPosX(unsigned int x);
 		void SetPosY(unsigned int y);
 		void SetPosition(unsigned int x, unsigned int y);
 
-		unsigned int GetWidth() const;
-		unsigned int GetHeight() const;
+		Vector2u GetSize() const;
 		void SetWidth(unsigned int width);
 		void SetHeight(unsigned int height);
 		void SetSize(unsigned int width, unsigned int height);

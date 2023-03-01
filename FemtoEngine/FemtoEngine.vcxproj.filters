@@ -48,6 +48,9 @@
     <ClInclude Include="Femto\External\include\GL\wglew.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Femto\System\Vector2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Femto\System\App.cpp">
@@ -69,5 +72,10 @@
   <ItemGroup>
     <Library Include="Femto\External\lib\glfw3.lib" />
     <Library Include="Femto\External\lib\glew32s.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Femto\System\Vector2.inl">
+      <Filter>Header Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

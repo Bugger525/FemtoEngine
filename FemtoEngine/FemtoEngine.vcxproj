@@ -154,6 +154,7 @@
     <ClInclude Include="Femto\System\App.h" />
     <ClInclude Include="Femto\System\Timer.h" />
     <ClInclude Include="Femto\Core\WindowProperties.h" />
+    <ClInclude Include="Femto\System\Vector2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Femto\Core\Debug.cpp" />
@@ -165,6 +166,9 @@
   <ItemGroup>
     <Library Include="Femto\External\lib\glew32s.lib" />
     <Library Include="Femto\External\lib\glfw3.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Femto\System\Vector2.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
