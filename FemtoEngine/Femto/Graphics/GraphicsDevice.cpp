@@ -23,12 +23,6 @@ namespace Femto
 	}
 	void GraphicsDevice::GLFWFrameBufferSizeCallback(GLFWwindow* window, int width, int height)
 	{
-		auto& self = *static_cast<Window*>(glfwGetWindowUserPointer(window));
-		if (!self.m_FullScreen)
-		{
-			self.m_Size.X = width;
-			self.m_Size.Y = height;
-		}
 		glViewport(0, 0, width, height);
 	}
 }

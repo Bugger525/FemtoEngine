@@ -1,6 +1,5 @@
 #include "Femto/System/App.h"
 #include "Femto/Core/Debug.h"
-#include <Windows.h>
 
 class DemoGame : public Femto::App
 {

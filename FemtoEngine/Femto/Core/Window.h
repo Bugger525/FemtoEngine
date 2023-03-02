@@ -48,6 +48,6 @@ namespace Femto
 		void Update() const;
 		void Cleanup();
 	private:
-		friend void GraphicsDevice::GLFWFrameBufferSizeCallback(GLFWwindow* window, int width, int height);
+		static void GLFWSizeCallback(GLFWwindow* window, int width, int height);
 	};
 }
