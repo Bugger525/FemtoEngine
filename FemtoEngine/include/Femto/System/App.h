@@ -2,12 +2,15 @@
 
 #include "../Core/Window.h"
 #include "../Graphics/GraphicsDevice.h"
+#include "../Graphics/Shader.h"
 #include <memory>
 
 namespace Femto
 {
 	class App
 	{
+	private:
+		Shader m_Shader;
 	protected:
 		std::unique_ptr<Window> m_Window;
 		std::unique_ptr<GraphicsDevice> m_GraphicsDevice;

@@ -16,7 +16,7 @@ namespace Femto
 	{
 		if (glewInit() != GLEW_OK)
 		{
-			Debug::Critical("Femto::Graphics::GraphicsDevice error; Failed to initialized GLEW.");
+			Debug::Critical("Femto::Graphics::GraphicsDevice; Failed to initialized GLEW.");
 			return;
 		}
 		glfwSetFramebufferSizeCallback(m_Window->GetRawWindow(), GLFWFrameBufferSizeCallback);

@@ -26,6 +26,8 @@ namespace Femto
 		void SetUniform(std::string_view name, bool value) const;
 		void SetUniform(std::string_view name, int value) const;
 		void SetUniform(std::string_view name, float value) const;
+
+		void Cleanup();
 	private:
 		unsigned int CompileShader(std::string_view shaderCode, ShaderType type);
 	};

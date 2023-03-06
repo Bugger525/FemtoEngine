@@ -9,7 +9,7 @@ namespace Femto
 	{
 		if (!glfwInit())
 		{
-			Debug::Critical("Femto::Core::Window error; Failed to initialize GLFW.");
+			Debug::Critical("Femto::Core::Window; Failed to initialize GLFW.");
 			return;
 		}
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -25,7 +25,7 @@ namespace Femto
 			m_Window = glfwCreateWindow(m_Size.X, m_Size.Y, m_Title.c_str(), nullptr, nullptr);
 		if (m_Window == nullptr)
 		{
-			Debug::Critical("Femto::Core::Window error; Failed to create GLFWwindow.");
+			Debug::Critical("Femto::Core::Window; Failed to create GLFWwindow.");
 			return;
 		}
 		glfwSetWindowPos(m_Window, m_Position.X, m_Position.Y);
