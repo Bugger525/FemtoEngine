@@ -51,21 +51,45 @@
     <ClInclude Include="Femto\System\Vector2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Femto\Core\Debug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Femto\Core\Window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Femto\Graphics\GraphicsDevice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Femto\Graphics\Shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Femto\System\App.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Femto\System\Timer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Femto\System\Vector2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Femto\System\App.cpp">
+    <ClCompile Include="src\Femto\System\App.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Femto\Core\Window.cpp">
+    <ClCompile Include="src\Femto\Core\Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Femto\Core\Debug.cpp">
+    <ClCompile Include="src\Femto\Core\Debug.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Femto\System\Timer.cpp">
+    <ClCompile Include="src\Femto\System\Timer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Femto\Graphics\GraphicsDevice.cpp">
+    <ClCompile Include="src\Femto\Graphics\GraphicsDevice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Femto\Graphics\Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -75,6 +99,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Femto\System\Vector2.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="include\Femto\System\Vector2.inl">
       <Filter>Header Files</Filter>
     </None>
   </ItemGroup>

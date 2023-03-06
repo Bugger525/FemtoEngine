@@ -1,5 +1,5 @@
-#include "Timer.h"
-#include "../Core/Debug.h"
+#include "System/Timer.h"
+#include "Core/Debug.h"
 
 namespace Femto
 {

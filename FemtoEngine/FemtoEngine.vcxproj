@@ -105,7 +105,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);GLEW_STATIC</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)Femto\External\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)include\Femto;$(ProjectDir)external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -115,7 +115,7 @@
       <AdditionalDependencies>glfw3.lib;glew32s.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(ProjectDir)Femto\External\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)external\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -127,7 +127,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);GLEW_STATIC</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)Femto\External\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)include\Femto;$(ProjectDir)external\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -139,7 +139,7 @@
       <AdditionalDependencies>glfw3.lib;glew32s.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(ProjectDir)Femto\External\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)external\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -155,13 +155,21 @@
     <ClInclude Include="Femto\System\Timer.h" />
     <ClInclude Include="Femto\Core\WindowProperties.h" />
     <ClInclude Include="Femto\System\Vector2.h" />
+    <ClInclude Include="include\Femto\Core\Debug.h" />
+    <ClInclude Include="include\Femto\Core\Window.h" />
+    <ClInclude Include="include\Femto\Graphics\GraphicsDevice.h" />
+    <ClInclude Include="include\Femto\Graphics\Shader.h" />
+    <ClInclude Include="include\Femto\System\App.h" />
+    <ClInclude Include="include\Femto\System\Timer.h" />
+    <ClInclude Include="include\Femto\System\Vector2.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Femto\Core\Debug.cpp" />
-    <ClCompile Include="Femto\Core\Window.cpp" />
-    <ClCompile Include="Femto\Graphics\GraphicsDevice.cpp" />
-    <ClCompile Include="Femto\System\App.cpp" />
-    <ClCompile Include="Femto\System\Timer.cpp" />
+    <ClCompile Include="src\Femto\Core\Debug.cpp" />
+    <ClCompile Include="src\Femto\Core\Window.cpp" />
+    <ClCompile Include="src\Femto\Graphics\GraphicsDevice.cpp" />
+    <ClCompile Include="src\Femto\System\App.cpp" />
+    <ClCompile Include="src\Femto\System\Timer.cpp" />
+    <ClCompile Include="src\Femto\Graphics\Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="Femto\External\lib\glew32s.lib" />
@@ -169,6 +177,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Femto\System\Vector2.inl" />
+    <None Include="include\Femto\System\Vector2.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

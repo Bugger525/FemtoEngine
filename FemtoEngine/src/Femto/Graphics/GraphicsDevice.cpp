@@ -1,6 +1,6 @@
-#include "GraphicsDevice.h"
-#include "../Core/Window.h"
-#include "../Core/Debug.h"
+#include "Graphics/GraphicsDevice.h"
+#include "Core/Window.h"
+#include "Core/Debug.h"
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 

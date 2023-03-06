@@ -1,4 +1,4 @@
-#include "Debug.h"
+#include "Core/Debug.h"
 #include <iostream>
 #include <Windows.h>
 #include <GL/glew.h>

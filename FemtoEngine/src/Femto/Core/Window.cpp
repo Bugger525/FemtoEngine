@@ -1,6 +1,6 @@
-#include "Window.h"
+#include "Core/Window.h"
+#include "Core/Debug.h"
 #include <GLFW/glfw3.h>
-#include "Debug.h"
 
 namespace Femto
 {
