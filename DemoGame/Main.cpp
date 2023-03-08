@@ -6,7 +6,6 @@ class DemoGame : public Femto::App
 protected:
 	void Initialize() override
 	{
-		FEMTO_INFO("{}", m_GraphicsDevice == nullptr);
 	}
 	void Update(float dt) override
 	{

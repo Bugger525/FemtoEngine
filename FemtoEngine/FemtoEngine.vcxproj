@@ -159,6 +159,7 @@
     <ClInclude Include="include\Femto\Core\Window.h" />
     <ClInclude Include="include\Femto\Graphics\GraphicsDevice.h" />
     <ClInclude Include="include\Femto\Graphics\Shader.h" />
+    <ClInclude Include="include\Femto\Graphics\Texture.h" />
     <ClInclude Include="include\Femto\System\App.h" />
     <ClInclude Include="include\Femto\System\Timer.h" />
     <ClInclude Include="include\Femto\System\Vector2.h" />
@@ -167,6 +168,7 @@
     <ClCompile Include="src\Femto\Core\Debug.cpp" />
     <ClCompile Include="src\Femto\Core\Window.cpp" />
     <ClCompile Include="src\Femto\Graphics\GraphicsDevice.cpp" />
+    <ClCompile Include="src\Femto\Graphics\Texture.cpp" />
     <ClCompile Include="src\Femto\System\App.cpp" />
     <ClCompile Include="src\Femto\System\Timer.cpp" />
     <ClCompile Include="src\Femto\Graphics\Shader.cpp" />

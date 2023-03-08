@@ -1,8 +1,8 @@
 #pragma once
 
 #include <string>
-#include "../System/Vector2.h"
-#include "../Graphics/GraphicsDevice.h"
+#include "System/Vector2.h"
+#include "Graphics/GraphicsDevice.h"
 
 struct GLFWwindow;
 struct GLFWmonitor;

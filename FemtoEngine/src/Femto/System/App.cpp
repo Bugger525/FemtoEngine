@@ -5,19 +5,51 @@ namespace Femto
 {
 	void App::Run()
 	{
-		std::string_view vertexShaderCode;
-		std::string_view fragmentShaderCode;
+		std::string_view vertexShaderCode = R"(
+#version 330 core
+layout (location = 0) in vec4 vertex; // <vec2 position, vec2 texCoords>
 
-		m_Shader.Attach(vertexShaderCode, ShaderType::Vertex);
-		m_Shader.Attach(fragmentShaderCode, ShaderType::Fragment);
+out vec2 TexCoords;
 
-		m_Window = std::make_unique<Window>();
-		m_GraphicsDevice = std::make_unique<GraphicsDevice>(m_Window.get());
+uniform mat4 model;
+uniform mat4 projection;
+
+void main()
+{
+    TexCoords = vertex.zw;
+    gl_Position = projection * model * vec4(vertex.xy, 0.0, 1.0);
+}
+			)";
+		std::string_view fragmentShaderCode = R"(
+#version 330 core
+in vec2 TexCoords;
+out vec4 color;
+
+uniform sampler2D image;
+uniform bool useTex;
+uniform vec3 spriteColor;
+
+void main()
+{   
+    if (useTex)
+    {
+        color = texture(image, TexCoords);
+    }
+    else
+    {
+        color = vec4(spriteColor, 1.0);
+    }
+}  
+)";
+		m_DefaultShader.Attach(vertexShaderCode, ShaderType::Vertex);
+		m_DefaultShader.Attach(fragmentShaderCode, ShaderType::Fragment);
+
+		m_GraphicsDevice = GraphicsDevice{ &m_Window };
 
 		Initialize();
 
 		Timer timer{};
-		while (m_Window->IsRunning())
+		while (m_Window.IsRunning())
 		{
 			timer.Tick();
 
@@ -26,7 +58,7 @@ namespace Femto
 
 			timer.Reset();
 
-			m_Window->Update();
+			m_Window.Update();
 		}
 		Cleanup();
 	}

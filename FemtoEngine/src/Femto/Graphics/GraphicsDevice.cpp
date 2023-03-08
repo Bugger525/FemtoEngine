@@ -21,6 +21,11 @@ namespace Femto
 		}
 		glfwSetFramebufferSizeCallback(m_Window->GetRawWindow(), GLFWFrameBufferSizeCallback);
 	}
+	void GraphicsDevice::Clear(const Color& color)
+	{
+		glClearColor(static_cast<float>(color.R), static_cast<float>(color.G), static_cast<float>(color.B), static_cast<float>(color.A));
+		glClear(GL_COLOR_BUFFER_BIT); // Advanced?
+	}
 	void GraphicsDevice::GLFWFrameBufferSizeCallback(GLFWwindow* window, int width, int height)
 	{
 		glViewport(0, 0, width, height);

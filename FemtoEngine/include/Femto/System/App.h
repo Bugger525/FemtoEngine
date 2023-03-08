@@ -1,19 +1,18 @@
 #pragma once
 
-#include "../Core/Window.h"
-#include "../Graphics/GraphicsDevice.h"
-#include "../Graphics/Shader.h"
-#include <memory>
+#include "Core/Window.h"
+#include "Graphics/GraphicsDevice.h"
+#include "Graphics/Shader.h"
 
 namespace Femto
 {
 	class App
 	{
 	private:
-		Shader m_Shader;
+		Shader m_DefaultShader;
 	protected:
-		std::unique_ptr<Window> m_Window;
-		std::unique_ptr<GraphicsDevice> m_GraphicsDevice;
+		Window m_Window;
+		GraphicsDevice m_GraphicsDevice;
 
 		virtual void Initialize() = 0;
 		virtual void Update(float dt) = 0;

@@ -1,5 +1,8 @@
 #pragma once
 
+#include "Shader.h"
+#include "Texture.h"
+
 struct GLFWwindow;
 
 namespace Femto
@@ -13,8 +16,8 @@ namespace Femto
 	public:
 		GraphicsDevice(Window* window);
 
-		void Clear(/* color */);
-		void Draw(/* args */);
+		void Clear(const Color& color);
+		void Draw(const Shader& shader, const Texture& texture, const Vector2f& position, const Vector2f& size);
 	private:
 		static void GLFWFrameBufferSizeCallback(GLFWwindow* window, int width, int height);
 	};

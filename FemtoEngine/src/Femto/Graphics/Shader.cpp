@@ -35,7 +35,7 @@ namespace Femto
 	{
 		return m_Shader;
 	}
-	Shader& Shader::Use()
+	Shader& Shader::Bind()
 	{
 		glUseProgram(m_Shader);
 		return *this;
@@ -51,6 +51,10 @@ namespace Femto
 	void Shader::SetUniform(std::string_view name, float value) const
 	{
 		glUniform1f(glGetUniformLocation(m_Shader, name.data()), value);
+	}
+	void Shader::SetUniform(std::string_view name, const Color& color) const
+	{
+		glUniform3f(glGetUniformLocation(m_Shader, name.data()), static_cast<float>(color.R), static_cast<float>(color.G), static_cast<float>(color.B));
 	}
 	void Shader::Cleanup()
 	{

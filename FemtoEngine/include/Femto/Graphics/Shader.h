@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include "Color.h"
 
 namespace Femto
 {
@@ -21,11 +22,12 @@ namespace Femto
 		void Attach(std::string_view shaderCode, ShaderType type);
 
 		unsigned int GetRawShader() const;
-		Shader& Use();
+		Shader& Bind();
 
 		void SetUniform(std::string_view name, bool value) const;
 		void SetUniform(std::string_view name, int value) const;
 		void SetUniform(std::string_view name, float value) const;
+		void SetUniform(std::string_view name, const Color& color) const;
 
 		void Cleanup();
 	private:
