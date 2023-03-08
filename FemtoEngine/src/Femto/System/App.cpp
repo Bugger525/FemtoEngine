@@ -41,10 +41,10 @@ void main()
     }
 }  
 )";
+		m_GraphicsDevice = GraphicsDevice{ &m_Window };
+
 		m_DefaultShader.Attach(vertexShaderCode, ShaderType::Vertex);
 		m_DefaultShader.Attach(fragmentShaderCode, ShaderType::Fragment);
-
-		m_GraphicsDevice = GraphicsDevice{ &m_Window };
 
 		Initialize();
 

@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Core/Window.h"
-#include "Graphics/GraphicsDevice.h"
-#include "Graphics/Shader.h"
+#include "../Core/Window.h"
+#include "../Graphics/GraphicsDevice.h"
+#include "../Graphics/Shader.h"
 
 namespace Femto
 {

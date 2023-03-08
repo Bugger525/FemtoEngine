@@ -14,6 +14,7 @@ namespace Femto
 	private:
 		Window* m_Window;
 	public:
+		GraphicsDevice();
 		GraphicsDevice(Window* window);
 
 		void Clear(const Color& color);

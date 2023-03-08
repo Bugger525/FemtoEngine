@@ -12,6 +12,9 @@ extern "C"
 
 namespace Femto
 {
+	GraphicsDevice::GraphicsDevice() : m_Window(nullptr)
+	{
+	}
 	GraphicsDevice::GraphicsDevice(Window* window) : m_Window(window)
 	{
 		if (glewInit() != GLEW_OK)
@@ -25,6 +28,9 @@ namespace Femto
 	{
 		glClearColor(static_cast<float>(color.R), static_cast<float>(color.G), static_cast<float>(color.B), static_cast<float>(color.A));
 		glClear(GL_COLOR_BUFFER_BIT); // Advanced?
+	}
+	void GraphicsDevice::Draw(const Shader& shader, const Texture& texture, const Vector2f& position, const Vector2f& size)
+	{
 	}
 	void GraphicsDevice::GLFWFrameBufferSizeCallback(GLFWwindow* window, int width, int height)
 	{

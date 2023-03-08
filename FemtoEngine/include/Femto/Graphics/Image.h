@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include "System/Vector2.h"
+#include "../System/Vector2.h"
 #include <span>
 
 namespace Femto

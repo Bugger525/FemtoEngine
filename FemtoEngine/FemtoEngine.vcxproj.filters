@@ -75,6 +75,27 @@
     <ClInclude Include="include\Femto\Graphics\Texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Femto\Graphics\Image.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Femto\Graphics\Color.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="external\include\GLFW\glfw3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="external\include\GL\eglew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="external\include\GL\glew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="external\include\GL\glxew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="external\include\GL\wglew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Femto\System\App.cpp">
@@ -98,16 +119,24 @@
     <ClCompile Include="src\Femto\Graphics\Texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Femto\Graphics\Image.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="Femto\External\lib\glfw3.lib" />
     <Library Include="Femto\External\lib\glew32s.lib" />
+    <Library Include="external\lib\glew32s.lib" />
+    <Library Include="external\lib\glfw3.lib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Femto\System\Vector2.inl">
       <Filter>Header Files</Filter>
     </None>
     <None Include="include\Femto\System\Vector2.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="include\Femto\Graphics\Color.inl">
       <Filter>Header Files</Filter>
     </None>
   </ItemGroup>

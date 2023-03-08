@@ -12,6 +12,7 @@ protected:
 	}
 	void Render(float dt) override
 	{
+		m_GraphicsDevice.Clear(Femto::Color::Cyan);
 	}
 	void Cleanup() override
 	{

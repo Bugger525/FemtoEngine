@@ -117,6 +117,9 @@
     <Lib>
       <AdditionalLibraryDirectories>$(ProjectDir)external\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -141,23 +144,21 @@
     <Lib>
       <AdditionalLibraryDirectories>$(ProjectDir)external\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Femto\Core\Debug.h" />
-    <ClInclude Include="Femto\Core\Window.h" />
-    <ClInclude Include="Femto\External\include\GLFW\glfw3.h" />
-    <ClInclude Include="Femto\External\include\GL\eglew.h" />
-    <ClInclude Include="Femto\External\include\GL\glew.h" />
-    <ClInclude Include="Femto\External\include\GL\glxew.h" />
-    <ClInclude Include="Femto\External\include\GL\wglew.h" />
-    <ClInclude Include="Femto\Graphics\GraphicsDevice.h" />
-    <ClInclude Include="Femto\System\App.h" />
-    <ClInclude Include="Femto\System\Timer.h" />
-    <ClInclude Include="Femto\Core\WindowProperties.h" />
-    <ClInclude Include="Femto\System\Vector2.h" />
+    <ClInclude Include="external\include\GLFW\glfw3.h" />
+    <ClInclude Include="external\include\GL\eglew.h" />
+    <ClInclude Include="external\include\GL\glew.h" />
+    <ClInclude Include="external\include\GL\glxew.h" />
+    <ClInclude Include="external\include\GL\wglew.h" />
     <ClInclude Include="include\Femto\Core\Debug.h" />
     <ClInclude Include="include\Femto\Core\Window.h" />
+    <ClInclude Include="include\Femto\Graphics\Color.h" />
     <ClInclude Include="include\Femto\Graphics\GraphicsDevice.h" />
+    <ClInclude Include="include\Femto\Graphics\Image.h" />
     <ClInclude Include="include\Femto\Graphics\Shader.h" />
     <ClInclude Include="include\Femto\Graphics\Texture.h" />
     <ClInclude Include="include\Femto\System\App.h" />
@@ -168,17 +169,18 @@
     <ClCompile Include="src\Femto\Core\Debug.cpp" />
     <ClCompile Include="src\Femto\Core\Window.cpp" />
     <ClCompile Include="src\Femto\Graphics\GraphicsDevice.cpp" />
+    <ClCompile Include="src\Femto\Graphics\Image.cpp" />
     <ClCompile Include="src\Femto\Graphics\Texture.cpp" />
     <ClCompile Include="src\Femto\System\App.cpp" />
     <ClCompile Include="src\Femto\System\Timer.cpp" />
     <ClCompile Include="src\Femto\Graphics\Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="Femto\External\lib\glew32s.lib" />
-    <Library Include="Femto\External\lib\glfw3.lib" />
+    <Library Include="external\lib\glew32s.lib" />
+    <Library Include="external\lib\glfw3.lib" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Femto\System\Vector2.inl" />
+    <None Include="include\Femto\Graphics\Color.inl" />
     <None Include="include\Femto\System\Vector2.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
