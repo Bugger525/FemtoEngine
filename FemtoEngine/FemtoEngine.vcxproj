@@ -154,6 +154,8 @@
     <ClInclude Include="external\include\GL\glew.h" />
     <ClInclude Include="external\include\GL\glxew.h" />
     <ClInclude Include="external\include\GL\wglew.h" />
+    <ClInclude Include="external\include\stb_image.h" />
+    <ClInclude Include="include\Femto\Core\AssetStream.h" />
     <ClInclude Include="include\Femto\Core\ContextSettings.h" />
     <ClInclude Include="include\Femto\Core\Debug.h" />
     <ClInclude Include="include\Femto\Core\Window.h" />
@@ -167,6 +169,7 @@
     <ClInclude Include="include\Femto\System\Vector2.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Femto\Core\AssetStream.cpp" />
     <ClCompile Include="src\Femto\Core\Debug.cpp" />
     <ClCompile Include="src\Femto\Core\Window.cpp" />
     <ClCompile Include="src\Femto\Graphics\GraphicsDevice.cpp" />

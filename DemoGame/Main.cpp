@@ -13,8 +13,6 @@ protected:
 	}
 	void Initialize() override
 	{
-		Femto::Debug::Info(m_GraphicsDevice->GetHardwareInfo());
-		FEMTO_INFO("#version {}{}0", m_GraphicsDevice->GetGLVersion().first, m_GraphicsDevice->GetGLVersion().second);
 	}
 	void Update(float dt) override
 	{
