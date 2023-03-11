@@ -3,6 +3,7 @@
 #include <string>
 #include "../System/Vector2.h"
 #include "../Graphics/GraphicsDevice.h"
+#include "ContextSettings.h"
 
 struct GLFWwindow;
 struct GLFWmonitor;
@@ -23,6 +24,7 @@ namespace Femto
 		GLFWmonitor* m_Monitor;
 	public:
 		Window();
+		Window(const ContextSettings& contextSettings);
 		~Window();
 
 		GLFWwindow* GetRawWindow() const;

@@ -1,7 +1,9 @@
 #pragma once
 
-#include "Shader.h"
-#include "Texture.h"
+#include "Color.h"
+#include <string>
+#include <utility>
+#include "../Core/ContextSettings.h"
 
 struct GLFWwindow;
 
@@ -13,12 +15,15 @@ namespace Femto
 	{
 	private:
 		Window* m_Window;
+		std::pair<unsigned int, unsigned int> m_Version;
 	public:
 		GraphicsDevice();
-		GraphicsDevice(Window* window);
+		GraphicsDevice(Window* window, const ContextSettings& contextSettings);
 
 		void Clear(const Color& color);
-		void Draw(const Shader& shader, const Texture& texture, const Vector2f& position, const Vector2f& size);
+
+		std::string_view GetHardwareInfo() const;
+		const std::pair<unsigned int, unsigned int>& GetGLVersion() const;
 	private:
 		static void GLFWFrameBufferSizeCallback(GLFWwindow* window, int width, int height);
 	};

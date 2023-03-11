@@ -12,14 +12,19 @@ extern "C"
 
 namespace Femto
 {
-	GraphicsDevice::GraphicsDevice() : m_Window(nullptr)
+	GraphicsDevice::GraphicsDevice() : m_Window(nullptr), m_Version(0, 0)
 	{
 	}
-	GraphicsDevice::GraphicsDevice(Window* window) : m_Window(window)
+	GraphicsDevice::GraphicsDevice(Window* window, const ContextSettings& contextSettings) : m_Window(window)
 	{
-		if (glewInit() != GLEW_OK)
+		m_Version = std::make_pair(contextSettings.OpenGLMajorVersion, contextSettings.OpenGLMinorVersion);
+
+		glewExperimental = GL_TRUE;
+
+		GLenum result = glewInit();
+		if (result != GLEW_OK)
 		{
-			Debug::Critical("Femto::Graphics::GraphicsDevice; Failed to initialized GLEW.");
+			FEMTO_CRITICAL("Femto::Graphics::GraphicsDevice; Failed to initialized GLEW. {}", (const char*)glewGetErrorString(result));
 			return;
 		}
 		glfwSetFramebufferSizeCallback(m_Window->GetRawWindow(), GLFWFrameBufferSizeCallback);
@@ -29,8 +34,14 @@ namespace Femto
 		glClearColor(static_cast<float>(color.R), static_cast<float>(color.G), static_cast<float>(color.B), static_cast<float>(color.A));
 		glClear(GL_COLOR_BUFFER_BIT); // Advanced?
 	}
-	void GraphicsDevice::Draw(const Shader& shader, const Texture& texture, const Vector2f& position, const Vector2f& size)
+	std::string_view GraphicsDevice::GetHardwareInfo() const
 	{
+		auto renderer = (const char*)glGetString(GL_RENDERER);
+		return renderer;
+	}
+	const std::pair<unsigned int, unsigned int>& GraphicsDevice::GetGLVersion() const
+	{
+		return m_Version;
 	}
 	void GraphicsDevice::GLFWFrameBufferSizeCallback(GLFWwindow* window, int width, int height)
 	{

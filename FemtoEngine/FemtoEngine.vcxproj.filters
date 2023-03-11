@@ -15,42 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Femto\System\App.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Femto\Core\WindowProperties.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Femto\Core\Window.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Femto\External\include\GLFW\glfw3.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Femto\Core\Debug.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Femto\System\Timer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Femto\Graphics\GraphicsDevice.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Femto\External\include\GL\eglew.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Femto\External\include\GL\glew.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Femto\External\include\GL\glxew.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Femto\External\include\GL\wglew.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Femto\System\Vector2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Femto\Core\Debug.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -96,6 +60,9 @@
     <ClInclude Include="external\include\GL\wglew.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Femto\Core\ContextSettings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Femto\System\App.cpp">
@@ -124,15 +91,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="Femto\External\lib\glfw3.lib" />
-    <Library Include="Femto\External\lib\glew32s.lib" />
     <Library Include="external\lib\glew32s.lib" />
     <Library Include="external\lib\glfw3.lib" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Femto\System\Vector2.inl">
-      <Filter>Header Files</Filter>
-    </None>
     <None Include="include\Femto\System\Vector2.inl">
       <Filter>Header Files</Filter>
     </None>

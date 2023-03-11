@@ -4,15 +4,24 @@
 class DemoGame : public Femto::App
 {
 protected:
+	Femto::ContextSettings SetupContext() override
+	{
+		Femto::ContextSettings context;
+		context.Debug = true;
+
+		return context;
+	}
 	void Initialize() override
 	{
+		Femto::Debug::Info(m_GraphicsDevice->GetHardwareInfo());
+		FEMTO_INFO("#version {}{}0", m_GraphicsDevice->GetGLVersion().first, m_GraphicsDevice->GetGLVersion().second);
 	}
 	void Update(float dt) override
 	{
 	}
 	void Render(float dt) override
 	{
-		m_GraphicsDevice.Clear(Femto::Color::Cyan);
+		m_GraphicsDevice->Clear(Femto::Color::Cyan);
 	}
 	void Cleanup() override
 	{

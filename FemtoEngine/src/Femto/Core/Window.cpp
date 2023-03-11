@@ -5,6 +5,10 @@
 namespace Femto
 {
 	Window::Window()
+		: m_Position(0, 0), m_Size(0, 0), m_FullScreen(false), m_Resizable(true), m_Window(nullptr), m_Monitor(nullptr)
+	{
+	}
+	Window::Window(const ContextSettings& contextSettings)
 		: m_Position(50, 50), m_Size(800, 600), m_Title("FemtoEngine App"), m_FullScreen(false), m_Resizable(true), m_Window(nullptr), m_Monitor(nullptr)
 	{
 		if (!glfwInit())
@@ -12,10 +16,10 @@ namespace Femto
 			Debug::Critical("Femto::Core::Window; Failed to initialize GLFW.");
 			return;
 		}
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, contextSettings.OpenGLMajorVersion);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, contextSettings.OpenGLMinorVersion);
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-		glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
+		glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, contextSettings.Debug);
 
 		m_Monitor = glfwGetPrimaryMonitor();
 

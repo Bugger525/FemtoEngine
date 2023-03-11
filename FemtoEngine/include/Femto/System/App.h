@@ -3,22 +3,25 @@
 #include "../Core/Window.h"
 #include "../Graphics/GraphicsDevice.h"
 #include "../Graphics/Shader.h"
+#include "../Core/ContextSettings.h"
+#include <memory>
 
 namespace Femto
 {
 	class App
 	{
 	private:
-		Shader m_DefaultShader;
+		ContextSettings m_ContextSettings;
+	public:
+		void Run();
 	protected:
-		Window m_Window;
-		GraphicsDevice m_GraphicsDevice;
+		std::unique_ptr<Window> m_Window;
+		std::unique_ptr<GraphicsDevice> m_GraphicsDevice;
 
+		virtual ContextSettings SetupContext();
 		virtual void Initialize() = 0;
 		virtual void Update(float dt) = 0;
 		virtual void Render(float dt) = 0;
 		virtual void Cleanup() = 0;
-	public:
-		void Run();
 	};
 }
