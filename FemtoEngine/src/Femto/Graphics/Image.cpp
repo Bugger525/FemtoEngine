@@ -17,4 +17,8 @@ namespace Femto
 	{
 		return m_Size;
 	}
+	bool Image::IsValid() const
+	{
+		return m_Image.size() > 0 && m_Size != Vector2u::Zero;
+	}
 }

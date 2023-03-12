@@ -32,7 +32,8 @@ namespace Femto
 	{
 		return X * vec.X + Y * vec.Y;
 	}
-	const Vector2<float> Vector2<float>::Zero = Vector2(0.f, 0.f);
+	template <typename T>
+	const Vector2<T> Vector2<T>::Zero = Vector2(0, 0);
 	template <typename T>
 	Vector2<T> operator+(const Vector2<T>& left, const Vector2<T>& right)
 	{

@@ -6,6 +6,7 @@ namespace Femto
 {
 	Shader::Shader() : m_Shader(NULL)
 	{
+		m_Shader = glCreateProgram();
 	}
 	Shader::~Shader()
 	{
@@ -17,8 +18,6 @@ namespace Femto
 		int success = 0;
 		char infoLog[512]{};
 
-		if (m_Shader == NULL)
-			m_Shader = glCreateProgram();
 		glAttachShader(m_Shader, shader);
 		glLinkProgram(m_Shader);
 		glGetProgramiv(m_Shader, GL_LINK_STATUS, &success);
@@ -80,7 +79,7 @@ namespace Femto
 			if (!success)
 			{
 				glGetShaderInfoLog(shader, 512, NULL, infoLog);
-				FEMTO_CRITICAL("Femto::Graphics::Shader; Failed to compile vertex shader : {}", infoLog);
+				FEMTO_CRITICAL("Femto::Graphics::Shader; Failed to compile vertex shader. {}", infoLog);
 				return NULL;
 			}
 		}
@@ -94,11 +93,10 @@ namespace Femto
 			if (!success)
 			{
 				glGetShaderInfoLog(shader, 512, NULL, infoLog);
-				FEMTO_CRITICAL("Femto::Graphics::Shader; Failed to compile fragment shader : {}", infoLog);
+				FEMTO_CRITICAL("Femto::Graphics::Shader; Failed to compile fragment shader. {}", infoLog);
 				return NULL;
 			}
 		}
 		return shader;
 	}
 }
-

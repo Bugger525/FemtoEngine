@@ -4,13 +4,13 @@
 class DemoGame : public Femto::App
 {
 protected:
-	Femto::ContextSettings SetupContext() override
-	{
-		Femto::ContextSettings context;
-		context.Debug = true;
+	//Femto::ContextSettings SetupContext() override
+	//{
+	//	Femto::ContextSettings context;
+	//	context.Debug = true;
 
-		return context;
-	}
+	//	return context;
+	//}
 	void Initialize() override
 	{
 	}

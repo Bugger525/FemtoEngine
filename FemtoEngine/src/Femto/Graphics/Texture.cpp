@@ -36,4 +36,8 @@ namespace Femto
 		if (m_Texture)
 			glDeleteTextures(1, &m_Texture);
 	}
+	bool Texture::IsValid() const
+	{
+		return m_Texture != NULL && m_Image.IsValid();
+	}
 }

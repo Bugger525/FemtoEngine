@@ -3,10 +3,11 @@
 #include <vector>
 #include "../System/Vector2.h"
 #include <span>
+#include "../Core/IAsset.h"
 
 namespace Femto
 {
-	class Image
+	class Image : public IAsset
 	{
 	private:
 		std::vector<unsigned char> m_Image;
@@ -17,5 +18,7 @@ namespace Femto
 
 		const std::vector<unsigned char>& GetRawImage() const;
 		Vector2u GetSize() const;
+
+		bool IsValid() const override;
 	};
 }

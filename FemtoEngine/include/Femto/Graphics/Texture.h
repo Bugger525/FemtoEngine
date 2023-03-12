@@ -1,10 +1,11 @@
 #pragma once
 
 #include "Image.h"
+#include "../Core/IAsset.h"
 
 namespace Femto
 {
-	class Texture
+	class Texture : public IAsset
 	{
 	private:
 		unsigned int m_Texture;
@@ -19,5 +20,7 @@ namespace Femto
 		const Image& GetImage() const;
 
 		void Cleanup();
+
+		bool IsValid() const override;
 	};
 }

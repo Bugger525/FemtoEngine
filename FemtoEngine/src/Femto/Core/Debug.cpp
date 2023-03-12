@@ -10,7 +10,7 @@ namespace Femto
 
 	void Debug::Initialize()
 	{
-		if (m_Init) return;
+		if (!Active || m_Init) return;
 
 #ifdef _WIN32
 		HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
