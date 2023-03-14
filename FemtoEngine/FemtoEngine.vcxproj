@@ -154,6 +154,44 @@
     <ClInclude Include="external\include\GL\glew.h" />
     <ClInclude Include="external\include\GL\glxew.h" />
     <ClInclude Include="external\include\GL\wglew.h" />
+    <ClInclude Include="external\include\rapidjson\allocators.h" />
+    <ClInclude Include="external\include\rapidjson\cursorstreamwrapper.h" />
+    <ClInclude Include="external\include\rapidjson\document.h" />
+    <ClInclude Include="external\include\rapidjson\encodedstream.h" />
+    <ClInclude Include="external\include\rapidjson\encodings.h" />
+    <ClInclude Include="external\include\rapidjson\error\en.h" />
+    <ClInclude Include="external\include\rapidjson\error\error.h" />
+    <ClInclude Include="external\include\rapidjson\filereadstream.h" />
+    <ClInclude Include="external\include\rapidjson\filewritestream.h" />
+    <ClInclude Include="external\include\rapidjson\fwd.h" />
+    <ClInclude Include="external\include\rapidjson\internal\biginteger.h" />
+    <ClInclude Include="external\include\rapidjson\internal\clzll.h" />
+    <ClInclude Include="external\include\rapidjson\internal\diyfp.h" />
+    <ClInclude Include="external\include\rapidjson\internal\dtoa.h" />
+    <ClInclude Include="external\include\rapidjson\internal\ieee754.h" />
+    <ClInclude Include="external\include\rapidjson\internal\itoa.h" />
+    <ClInclude Include="external\include\rapidjson\internal\meta.h" />
+    <ClInclude Include="external\include\rapidjson\internal\pow10.h" />
+    <ClInclude Include="external\include\rapidjson\internal\regex.h" />
+    <ClInclude Include="external\include\rapidjson\internal\stack.h" />
+    <ClInclude Include="external\include\rapidjson\internal\strfunc.h" />
+    <ClInclude Include="external\include\rapidjson\internal\strtod.h" />
+    <ClInclude Include="external\include\rapidjson\internal\swap.h" />
+    <ClInclude Include="external\include\rapidjson\istreamwrapper.h" />
+    <ClInclude Include="external\include\rapidjson\memorybuffer.h" />
+    <ClInclude Include="external\include\rapidjson\memorystream.h" />
+    <ClInclude Include="external\include\rapidjson\msinttypes\inttypes.h" />
+    <ClInclude Include="external\include\rapidjson\msinttypes\stdint.h" />
+    <ClInclude Include="external\include\rapidjson\ostreamwrapper.h" />
+    <ClInclude Include="external\include\rapidjson\pointer.h" />
+    <ClInclude Include="external\include\rapidjson\prettywriter.h" />
+    <ClInclude Include="external\include\rapidjson\rapidjson.h" />
+    <ClInclude Include="external\include\rapidjson\reader.h" />
+    <ClInclude Include="external\include\rapidjson\schema.h" />
+    <ClInclude Include="external\include\rapidjson\stream.h" />
+    <ClInclude Include="external\include\rapidjson\stringbuffer.h" />
+    <ClInclude Include="external\include\rapidjson\uri.h" />
+    <ClInclude Include="external\include\rapidjson\writer.h" />
     <ClInclude Include="external\include\stb_image.h" />
     <ClInclude Include="include\Femto\Core\Assets.h" />
     <ClInclude Include="include\Femto\Core\AssetStream.h" />
@@ -187,6 +225,7 @@
     <Library Include="external\lib\glfw3.lib" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="include\Femto\Core\Assets.inl" />
     <None Include="include\Femto\Graphics\Color.inl" />
     <None Include="include\Femto\System\Vector2.inl" />
   </ItemGroup>

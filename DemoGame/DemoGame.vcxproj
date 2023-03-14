@@ -143,6 +143,12 @@
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\assets.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Gunner_Black_Idle.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

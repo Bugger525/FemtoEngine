@@ -6,7 +6,6 @@ namespace Femto
 {
 	Shader::Shader() : m_Shader(NULL)
 	{
-		m_Shader = glCreateProgram();
 	}
 	Shader::~Shader()
 	{
@@ -18,6 +17,8 @@ namespace Femto
 		int success = 0;
 		char infoLog[512]{};
 
+		if (m_Shader == NULL)
+			m_Shader = glCreateProgram();
 		glAttachShader(m_Shader, shader);
 		glLinkProgram(m_Shader);
 		glGetProgramiv(m_Shader, GL_LINK_STATUS, &success);

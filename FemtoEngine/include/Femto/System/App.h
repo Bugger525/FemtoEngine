@@ -4,6 +4,7 @@
 #include "../Graphics/GraphicsDevice.h"
 #include "../Graphics/Shader.h"
 #include "../Core/ContextSettings.h"
+#include "../Core/Assets.h"
 #include <memory>
 
 namespace Femto

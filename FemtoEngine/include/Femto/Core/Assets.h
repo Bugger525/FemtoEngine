@@ -2,29 +2,25 @@
 
 #include <map>
 #include <string>
-#include <filesystem>
 #include <memory>
-#include "IAsset.h"
-#include "Debug.h"
-
-namespace fs = std::filesystem;
 
 namespace Femto
 {
 	class Assets
 	{
 	private:
-		std::map<std::string, std::unique_ptr<IAsset>> m_Assets;
-	public:
-		std::string AssetsPath;
-
 		template <typename T>
-		inline T* Load(std::string_view name)
-		{
-			if (!Exists(name)) return nullptr;
-			return static_cast<T*>(m_Assets[std::string(name)].get());
-		}
-		bool Exists(std::string_view name);
-		void Clear();
+		static std::map<std::string, std::unique_ptr<T>> m_Assets;
+	public:
+		static void Load(std::string_view assetsPath);
+		template <typename T>
+		static T* Get(std::string_view name);
+		template <typename T>
+		static bool Exists(std::string_view name);
+		template <typename T>
+		static void Clear();
+	private:
+		static std::string_view ReadAssets(std::string_view assetsPath);
 	};
 }
+#include "Assets.inl"
